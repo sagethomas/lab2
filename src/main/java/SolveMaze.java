@@ -34,7 +34,19 @@ public class SolveMaze {
          * Feel free to adjust this number if you experiment with other mazes.
          */
         for (int step = 0; step < 1000; step++) {
-            // Implement your maze solving algorithm here
+            //random walking algorithm
+            while (maze.isFinished() == false) {
+                while(maze.canMove()== true) {
+                    maze.move();
+                }
+               while(maze.canMove()==false) {
+                    double x = Math.random();
+                    if(x<.5) {
+                        maze.turnRight();
+                    }
+                    else maze.turnLeft();
+                }
+            }
         }
 
         if (maze.isFinished()) {
